@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mencari Angka Terbesar Kedua</h1>
+    <p>Buka <strong>Developer Tools (F12)</strong> lalu pilih tab <strong>Console</strong> untk melihat hasilnya</p>
+    <script>
+        function cariTerbesar(arr) {
+            if (arr.length < 2) {
+                return null;
+            }
+
+            let terbesar = -Infinity;
+            let keduaTerbesar = -Infinity;
+
+            for (let i = 0; i < arr.length; i++) {
+                const angkaSkrg = arr[i];
+
+                if (angkaSkrg > terbesar) {
+                    keduaTerbesar = terbesar;
+                    terbesar = angkaSkrg;
+                } else if (
+                    angkaSkrg > keduaTerbesar &&
+                    angkaSkrg !== terbesar
+                ) {
+                    keduaTerbesar = angkaSkrg;
+                }
+            }
+
+            return keduaTerbesar === -Infinity
+                ? null
+                : keduaTerbesar;
+        }
+
+        const dataAngka = [10, 5, 20, 15, 8];
+
+        const hasil = cariTerbesar(dataAngka);
+
+        console.log("Array: " + dataAngka);
+        console.log("Angka terbesar kedua:", hasil);
+
+    </script>
+</body>
+</html>
